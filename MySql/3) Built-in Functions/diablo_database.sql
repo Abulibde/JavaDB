@@ -4225,3 +4225,5 @@ FROM `games`
 WHERE YEAR(`start`) IN (2011, 2012)
 ORDER BY `start`, `name`
 LIMIT 50;
+
+# 13.	 User Email Providers
