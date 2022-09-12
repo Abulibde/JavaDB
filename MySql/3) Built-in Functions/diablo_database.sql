@@ -4220,10 +4220,14 @@ VALUES (18, 1),
 use diablo;
 
 # 12.	Games from 2011 and 2012 Year
-SELECT `name`, DATE_FORMAT (`start`, '%Y-%m-%d')
+SELECT `name`, DATE_FORMAT(`start`, '%Y-%m-%d')
 FROM `games`
 WHERE YEAR(`start`) IN (2011, 2012)
 ORDER BY `start`, `name`
 LIMIT 50;
 
 # 13.	 User Email Providers
+SELECT `user_name`, SUBSTRING(`email`, LOCATE('@', `email`) + 1) AS 'email provider'
+FROM `users`
+ORDER BY `email provider`, `user_name`;
+
