@@ -4236,3 +4236,6 @@ SELECT `user_name`, `ip_address`
 FROM `users`
 WHERE `ip_address` LIKE '___.1%.%.___'
 ORDER BY `user_name`;
+
+# 15.	 Show All Games with Duration and Part of the Day
+
