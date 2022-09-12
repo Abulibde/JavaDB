@@ -4231,3 +4231,5 @@ SELECT `user_name`, SUBSTRING(`email`, LOCATE('@', `email`) + 1) AS 'email provi
 FROM `users`
 ORDER BY `email provider`, `user_name`;
 
+# 14.	 Get Users with IP Address Like Pattern
+
