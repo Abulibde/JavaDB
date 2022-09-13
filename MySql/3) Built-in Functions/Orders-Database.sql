@@ -25,3 +25,6 @@ INSERT INTO orders (id, product_name, order_date) VALUES (12, 'Tomatoesytu', '20
 INSERT INTO orders (id, product_name, order_date) VALUES (13, 'Toyymatddoehys', '20151231');
 INSERT INTO orders (id, product_name, order_date) VALUES (14, 'Tom443atoes', '20151215');
 INSERT INTO orders (id, product_name, order_date) VALUES (15, 'Tomat65434foe23gfhgsPep', '20151004');
+
+
+# 16.	 Orders Table
