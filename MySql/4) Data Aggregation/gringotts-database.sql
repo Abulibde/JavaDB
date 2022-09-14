@@ -186,3 +186,6 @@ INSERT INTO `wizzard_deposits` (`id`, `first_name`, `last_name`, `notes`, `age`,
 	(162, 'Blaise', 'Zabini', 'Slytherin student in Harry\'s year, friends with Draco Malfoy.', 16, 'Mykew Gregorovitch', 11, 'Human Pride', '1990-03-28', 3049.06, 6.27, 61.00, '1990-07-04', b'0');
 
 USE gringotts;
+
+# 1.	 Records' Count
+
