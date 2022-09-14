@@ -188,4 +188,5 @@ INSERT INTO `wizzard_deposits` (`id`, `first_name`, `last_name`, `notes`, `age`,
 USE gringotts;
 
 # 1.	 Records' Count
-
+SELECT COUNT(*)
+FROM `wizzard_deposits`;
