@@ -190,3 +190,6 @@ USE gringotts;
 # 1.	 Records' Count
 SELECT COUNT(*)
 FROM `wizzard_deposits`;
+
+# 2.	 Longest Magic Wand
+
