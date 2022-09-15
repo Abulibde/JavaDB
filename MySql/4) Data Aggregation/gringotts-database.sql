@@ -502,3 +502,6 @@ SELECT CASE
 FROM `wizzard_deposits`
 GROUP BY `age_groups`
 ORDER BY `wizard_count`;
+
+# 10.   First Letter
+
