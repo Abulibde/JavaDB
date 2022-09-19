@@ -1674,23 +1674,29 @@ INSERT INTO `towns` (`town_id`, `name`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 
 
-#1. Find All Information About Departments
+# 1. Find All Information About Departments
 USE soft_uni;
 SELECT *
 FROM `departments`
 ORDER BY `department_id`;
 
-#2. Find all Department Names
+# 2. Find all Department Names
 SELECT `name`
 from `departments`
 ORDER BY `department_id`;
 
-#3. Find salary of Each Employee
+# 3. Find salary of Each Employee
 SELECT `first_name`, `last_name`,`salary`
 FROM `employees`
 ORDER BY `employee_id`;
 
-#4. Find Full Name of Each Employee
+# 4. Find Full Name of Each Employee
 SELECT `first_name`,`middle_name`,`last_name`
 FROM `employees`
 ORDER BY `employee_id`;
+
+# 5. Find Email Address of Each Employee
+# first_name + last_name + @softuni.bg
+SELECT CONCAT(`first_name`, '.', `last_name`, '@softuni.bg') AS `full_email_address`
+FROM `employees`;
+
