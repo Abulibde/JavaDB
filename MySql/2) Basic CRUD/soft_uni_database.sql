@@ -1689,3 +1689,8 @@ ORDER BY `department_id`;
 SELECT `first_name`, `last_name`,`salary`
 FROM `employees`
 ORDER BY `employee_id`;
+
+#4. Find Full Name of Each Employee
+SELECT `first_name`,`middle_name`,`last_name`
+FROM `employees`
+ORDER BY `employee_id`;
