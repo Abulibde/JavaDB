@@ -1704,3 +1704,8 @@ FROM `employees`;
 SELECT DISTINCT `salary`
 FROM `employees`;
 
+# 7. Find all Information About Employees
+SELECT *
+FROM `employees`
+WHERE `job_title` = 'Sales Representative';
+
