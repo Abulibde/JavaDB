@@ -1986,6 +1986,21 @@ FROM `employees`
 WHERE `department_id` != 4;
 
 # 14. Sort Employees Table
+/*
+1. salary DESC
+2. first_name alpha
+3. last_name DESC
+4. middle_name alpha
+5. id
+*/
+
+SELECT *
+FROM `employees`
+ORDER BY `salary` DESC,
+         `first_name`,
+         `last_name` DESC,
+         `middle_name`,
+         `employee_id`;
 
 
 
