@@ -1964,24 +1964,24 @@ FROM `employees`
 WHERE `salary` IN (25000, 14000, 12500, 23600);
 
 # 10. Find All Employees Without Manager
-SELECT `first_name`,`last_name`
+SELECT `first_name`, `last_name`
 FROM `employees`
 WHERE `manager_id` IS NULL;
 
 # 11. Find All Employees with salary More Than 50000
-SELECT `first_name`,`last_name`,`salary`
+SELECT `first_name`, `last_name`, `salary`
 FROM `employees`
 WHERE `salary` > 50000
 ORDER BY `salary` DESC;
 
 # 12. Find 5 Best Paid Employees
-SELECT `first_name`,`last_name`
+SELECT `first_name`, `last_name`
 FROM `employees`
 ORDER BY `salary` DESC
 LIMIT 5;
 
 # 13. Find All Employees Except Marketing
-SELECT `first_name`,`last_name`
+SELECT `first_name`, `last_name`
 FROM `employees`
 WHERE `department_id` != 4;
 
@@ -1993,7 +1993,6 @@ WHERE `department_id` != 4;
 4. middle_name alpha
 5. id
 */
-
 SELECT *
 FROM `employees`
 ORDER BY `salary` DESC,
@@ -2001,6 +2000,8 @@ ORDER BY `salary` DESC,
          `last_name` DESC,
          `middle_name`,
          `employee_id`;
+
+#
 
 
 
