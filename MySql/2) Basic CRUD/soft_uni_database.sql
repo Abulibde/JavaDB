@@ -1980,7 +1980,10 @@ FROM `employees`
 ORDER BY `salary` DESC
 LIMIT 5;
 
-#
+# 13. Find All Employees Except Marketing
+SELECT `first_name`,`last_name`
+FROM `employees`
+WHERE `department_id` != 4;
 
 
 
