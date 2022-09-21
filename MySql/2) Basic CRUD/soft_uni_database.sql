@@ -1963,6 +1963,9 @@ SELECT CONCAT_WS(' ', `first_name`, `middle_name`, `last_name`)
 FROM `employees`
 WHERE `salary` IN (25000, 14000, 12500, 23600);
 
-#
+# 10. Find All Employees Without Manager
+SELECT `first_name`,`last_name`
+FROM `employees`
+WHERE `manager_id` IS NULL;
 
 
