@@ -1968,4 +1968,7 @@ SELECT `first_name`,`last_name`
 FROM `employees`
 WHERE `manager_id` IS NULL;
 
+# 11. Find All Employees with salary More Than 50000
+
+
 
