@@ -2006,6 +2006,7 @@ CREATE VIEW `v_employees_salaries` AS
 SELECT `first_name`, `last_name`, `salary`
 FROM `employees`
 
+# 16. Create View Employees with Job Titles
 
 
 
