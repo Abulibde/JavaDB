@@ -806,3 +806,5 @@ INSERT INTO `rivers` (`id`, `river_name`, `length`, `drainage_area`, `average_di
 SELECT `peak_name`
 FROM `peaks`
 ORDER BY `peak_name`;
+
+# 22.  Biggest Countries by Population
