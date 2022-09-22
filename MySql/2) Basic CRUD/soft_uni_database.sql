@@ -2004,9 +2004,16 @@ ORDER BY `salary` DESC,
 # 15. Create View Employees with Salaries
 CREATE VIEW `v_employees_salaries` AS
 SELECT `first_name`, `last_name`, `salary`
-FROM `employees`
+FROM `employees`;
 
 # 16. Create View Employees with Job Titles
+CREATE VIEW `v_employees_job_titles` AS
+SELECT CONCAT_WS(' ', `first_name`, `middle_name`, `last_name`)
+           AS 'full employee name',
+       `job_title`
+FROM `employees`;
+
+#
 
 
 
