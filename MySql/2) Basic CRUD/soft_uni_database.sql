@@ -2032,6 +2032,9 @@ FROM `employees`
 ORDER BY `hire_date` DESC
 LIMIT 7;
 
+# 20. Increase Salaries
+
+
 
 
 
