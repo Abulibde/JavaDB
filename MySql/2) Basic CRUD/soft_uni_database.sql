@@ -2018,6 +2018,8 @@ SELECT DISTINCT `job_title`
 FROM `employees`
 ORDER BY `job_title`;
 
+# 18. Find First 10 Started Projects
+
 
 
 
