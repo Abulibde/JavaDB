@@ -2026,6 +2026,9 @@ ORDER BY `start_date`,
          `project_id`
 LIMIT 10;
 
+# 19.  Last 7 Hired Employees
+
+
 
 
 
