@@ -2014,7 +2014,9 @@ SELECT CONCAT_WS(' ', `first_name`, `middle_name`, `last_name`)
 FROM `employees`;
 
 # 17.  Distinct Job Titles
-
+SELECT DISTINCT `job_title`
+FROM `employees`
+ORDER BY `job_title`;
 
 
 
