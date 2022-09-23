@@ -4110,6 +4110,7 @@ INSERT INTO `user_game_items` (`item_id`, `user_game_id`) VALUES
 
 
 # 1. 24.  All Diablo Characters
+
 USE diablo;
 SELECT `name`
 FROM `characters`
