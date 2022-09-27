@@ -218,6 +218,9 @@ SET `salary` = `salary` * 1.10;
 SELECT `salary`
 FROM employees;
 
+drop database `soft_uni`;
+drop database `minions`;
+
 
 
 
