@@ -165,13 +165,35 @@ VALUES ('Ivan', 'Ivanov', 'Ivanov', '.NET Developer', 4, '2013/02/01', 3500.00),
 
 # 14. Basic Select All Fields
 #14.1 Select all field from towns
-SELECT * FROM `towns`;
+SELECT *
+FROM `towns`;
 
 #14.2 Select all fields from departments
-SELECT * FROM `departments`;
+SELECT *
+FROM `departments`;
 
 #14.3 Select all fields from employees
-SELECT * FROM `employees`;
+SELECT *
+FROM `employees`;
+
+
+#15.	Basic Select All Fields and Order Them
+#15.1 Select all field from towns by name in alphabetical order
+SELECT *
+FROM `towns`
+ORDER BY `name`;
+
+#15.2 Select all fields from departments by alphabetical order
+SELECT *
+FROM `departments`
+ORDER BY `name`;
+
+#14.3 Select all fields from employees by salary in descending order
+SELECT *
+FROM `employees`
+ORDER BY `salary` DESC;
+
+
 
 
 
