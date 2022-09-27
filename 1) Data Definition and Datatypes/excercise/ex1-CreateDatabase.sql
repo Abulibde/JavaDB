@@ -53,21 +53,51 @@ DROP TABLE `towns`;
 CREATE TABLE `people`
 (
     `id`        INT PRIMARY KEY AUTO_INCREMENT,
-    `name`      VARCHAR(200) NOT NULL,
+    `name`      VARCHAR(200)   NOT NULL,
     `picture`   BLOB,
     `height`    DOUBLE(10, 2),
     `weight`    DOUBLE(10, 2),
-    `gender`    CHAR(1)      NOT NULL,
-    `birthdate` DATE         NOT NULL,
+    `gender`    ENUM ('m','f') NOT NULL,
+    `birthdate` DATE           NOT NULL,
     `biography` TEXT
 );
 
-INSERT INTO `people`(`name`,`gender`,`birthdate`)
-VALUES ('Boris','m',DATE (NOW())),
-       ('Nasko','m',DATE (NOW())),
-       ('Peter','m',DATE (NOW())),
-       ('Ivanka','f',DATE (NOW())),
-       ('Chiko','m',DATE (NOW()));
+#Fill the table
+INSERT INTO `people`(`name`, `gender`, `birthdate`)
+VALUES ('Boris', 'm', DATE(NOW())),
+       ('Nasko', 'm', DATE(NOW())),
+       ('Peter', 'm', DATE(NOW())),
+       ('Ivanka', 'f', DATE(NOW())),
+       ('Chiko', 'm', DATE(NOW()));
+
+#Create table users
+CREATE TABLE `users`
+(
+    `id`              INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `username`        VARCHAR(30)                    NOT NULL,#required
+    `password`        VARCHAR(26)                    NOT NULL,#required
+    `profile_picture` BLOB,
+    `last_login_time` TIME,
+    `is_deleted`      BOOLEAN
+);
+
+#Fill the table
+INSERT INTO `users`(`username`, `password`)
+VALUES ('Vacho', '12345'),
+       ('Ivailo', 'dsf'),
+       ('Ivan', 'sdcfdsg'),
+       ('Gosho', 'agggggg'),
+       ('Pesho', 'dgggggddeee');
+
+#Change primary key
+ALTER TABLE `users`
+    DROP PRIMARY KEY,
+    ADD PRIMARY KEY pk_users (`id`, `username`);
+
+#Set Default Value of a Field
+ALTER TABLE `users`
+MODIFY COLUMN `last_login_time` DATETIME DEFAULT NOW();
+
 
 
 
