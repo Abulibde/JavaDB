@@ -96,7 +96,17 @@ ALTER TABLE `users`
 
 #Set Default Value of a Field
 ALTER TABLE `users`
-MODIFY COLUMN `last_login_time` DATETIME DEFAULT NOW();
+    MODIFY COLUMN `last_login_time` DATETIME DEFAULT NOW();
+
+#Set Unique Field
+ALTER TABLE `users`
+    DROP PRIMARY KEY,
+    ADD CONSTRAINT pk_users
+        PRIMARY KEY `users` (`id`),
+    MODIFY COLUMN `username` VARCHAR(30) UNIQUE;
+
+
+
 
 
 
