@@ -188,10 +188,37 @@ SELECT *
 FROM `departments`
 ORDER BY `name`;
 
-#14.3 Select all fields from employees by salary in descending order
+#15.3 Select all fields from employees by salary in descending order
 SELECT *
 FROM `employees`
 ORDER BY `salary` DESC;
+
+#16.  Basic Select Some Fields
+#16.1. Select name of the towns alphabetically ordered by name
+SELECT `name`
+FROM `towns`
+ORDER BY `name`;
+
+#16.2 Select name field from departments by alphabetical order
+SELECT `name`
+FROM `departments`
+ORDER BY `name`;
+
+#16.3 Select some fields from employees by salary in descending order
+SELECT `first_name`, `last_name`, `job_title`, `salary`
+FROM `employees`
+ORDER BY `salary` DESC;
+
+#17.    Increase Employees Salary
+#17.1.  increase salary
+UPDATE `employees`
+SET `salary` = `salary` * 1.10;
+
+#17.2.  select salary from employees
+SELECT `salary`
+FROM employees;
+
+
 
 
 
