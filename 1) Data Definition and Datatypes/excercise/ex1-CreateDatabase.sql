@@ -45,4 +45,8 @@ VALUES (1, 'Kevin', 22, 1),
 #Truncate table minions
 TRUNCATE TABLE `minions`;
 
+#Drop all tables
+DROP TABLE `minions`;
+DROP TABLE `towns`;
+
 
