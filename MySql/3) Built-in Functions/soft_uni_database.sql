@@ -1672,3 +1672,10 @@ INSERT INTO `towns` (`town_id`, `name`) VALUES
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+
+# 1.	Find Names of All Employees by First Name
+SELECT `first_name`, `last_name`
+FROM `employees`
+WHERE `first_name` LIKE 'Sa%'
+ORDER BY `employee_id`;
