@@ -1960,3 +1960,5 @@ WHERE `name` NOT LIKE 'R%'
   AND `name` NOT LIKE 'B%'
   AND `name` NOT LIKE 'D%'
 ORDER BY `name`;
+
+# 8.	Create View Employees Hired After 2000 Year
