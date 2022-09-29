@@ -1962,3 +1962,13 @@ WHERE `name` NOT LIKE 'R%'
 ORDER BY `name`;
 
 # 8.	Create View Employees Hired After 2000 Year
+# 8.1. Create View
+CREATE VIEW `v_employees_hired_after_2000` AS
+SELECT `first_name`, `last_name`
+FROM `employees`
+WHERE YEAR(`hire_date`) > 2000;
+# 8.2. Select everything from this view
+SELECT *
+FROM v_employees_hired_after_2000;
+
+#
