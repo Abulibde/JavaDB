@@ -4238,4 +4238,19 @@ WHERE `ip_address` LIKE '___.1%.%.___'
 ORDER BY `user_name`;
 
 # 15.	 Show All Games with Duration and Part of the Day
+SELECT `name` AS 'game',
+       CASE
+           WHEN 0 <= HOUR(`start`) AND HOUR(`start`) < 12 THEN 'Morning'
+           WHEN 12 <= HOUR(`start`) AND HOUR(`start`) < 18 THEN 'Afternoon'
+           WHEN 18 <= HOUR(`start`) AND HOUR(`start`) < 24 THEN 'Evening'
+           END
+              AS 'Part of the Day',
+       CASE
+           WHEN `duration` <= 3 THEN 'Extra Short'
+           WHEN `duration` <= 6 THEN 'Short'
+           WHEN `duration` <= 10 THEN 'Long'
+           ELSE 'Extra Long'
+           END
+              AS 'Duration'
+FROM `games`;
 
