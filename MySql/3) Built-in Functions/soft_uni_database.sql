@@ -1972,4 +1972,6 @@ SELECT *
 FROM v_employees_hired_after_2000;
 
 # 9.	Length of Last Name
-
+SELECT `first_name`, `last_name`
+FROM `employees`
+WHERE CHAR_LENGTH(`last_name`) = 5;
