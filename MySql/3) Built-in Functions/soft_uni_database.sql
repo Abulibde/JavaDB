@@ -1950,5 +1950,11 @@ ORDER BY `name`;
 # 6.	 Find Towns Starting With
 SELECT *
 FROM towns
-WHERE `name` REGEXP '^[MKBE]'
+WHERE `name` REGEXP '^[MKBEmkbe]'
+ORDER BY `name`;
+
+# 7.	 Find Towns Not Starting With
+SELECT *
+FROM `towns`
+WHERE `name` REGEXP '\!^[RBD]'
 ORDER BY `name`;
