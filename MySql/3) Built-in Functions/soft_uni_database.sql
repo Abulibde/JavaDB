@@ -1946,3 +1946,9 @@ SELECT `name`
 FROM `towns`
 WHERE CHAR_LENGTH(`name`) IN (5, 6)
 ORDER BY `name`;
+
+# 6.	 Find Towns Starting With
+SELECT *
+FROM towns
+WHERE `name` REGEXP '^[MKBE]'
+ORDER BY `name`;
