@@ -194,3 +194,6 @@ FROM `wizzard_deposits`;
 # 2.	 Longest Magic Wand
 SELECT MAX(`magic_wand_size`)
 FROM `wizzard_deposits`;
+
+# 5.	 Deposits Sum
+
