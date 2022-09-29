@@ -1956,5 +1956,7 @@ ORDER BY `name`;
 # 7.	 Find Towns Not Starting With
 SELECT *
 FROM `towns`
-WHERE `name` REGEXP '\!^[RBD]'
+WHERE `name` NOT LIKE 'R%'
+  AND `name` NOT LIKE 'B%'
+  AND `name` NOT LIKE 'D%'
 ORDER BY `name`;
