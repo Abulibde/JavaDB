@@ -195,6 +195,8 @@ FROM `wizzard_deposits`;
 SELECT MAX(`magic_wand_size`)
 FROM `wizzard_deposits`;
 
+# 3.     Longest Magic Wand Per Deposit Groups
+
 # 5.	 Deposits Sum
 SELECT `deposit_group`, SUM(`deposit_amount`) AS 'sum amount'
 FROM `wizzard_deposits`
