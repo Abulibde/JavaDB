@@ -1947,3 +1947,6 @@ GROUP BY `department_id`
 HAVING 30000 > `max_salary`
     OR `max_salary` > 70000
 ORDER BY `department_id`;
+
+# 15.	Employees Count Salaries
+
