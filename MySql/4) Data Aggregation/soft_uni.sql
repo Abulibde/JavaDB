@@ -1949,4 +1949,6 @@ HAVING 30000 > `max_salary`
 ORDER BY `department_id`;
 
 # 15.	Employees Count Salaries
-
+SELECT COUNT(`salary`)
+FROM `employees`
+WHERE `manager_id` IS NULL;
