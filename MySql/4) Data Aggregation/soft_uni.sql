@@ -1952,3 +1952,6 @@ ORDER BY `department_id`;
 SELECT COUNT(`salary`)
 FROM `employees`
 WHERE `manager_id` IS NULL;
+
+# 16.	3rd Highest Salary*
+
