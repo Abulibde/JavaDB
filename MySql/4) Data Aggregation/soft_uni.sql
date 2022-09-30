@@ -1911,10 +1911,31 @@ use soft_uni;
 # 12.	 Employees Minimum Salaries
 SELECT `department_id`, MIN(`salary`) AS 'minimum_salary'
 FROM `employees`
-WHERE DATE(`hire_date`)>'2000-01-01'
+WHERE DATE(`hire_date`) > '2000-01-01'
 GROUP BY `department_id`
-HAVING `department_id` IN (2,5,7)
+HAVING `department_id` IN (2, 5, 7)
 ORDER BY `department_id`;
 
 # 13.	Employees Average Salaries
+# 13.1 Create new table with employees with salary over 30 000
+CREATE TABLE `high_paid_employees` AS
+SELECT *
+FROM `employees`
+WHERE `salary` > 30000;
 
+# 13.2 Delete all employees with manager_id 42
+DELETE
+FROM `high_paid_employees`
+WHERE `manager_id` = 42;
+
+# 13.3 Increase salary of employees with department_id 1 with 5000
+UPDATE `high_paid_employees`
+SET `salary` = `salary` + 5000
+WHERE `department_id` = 1;
+
+# 13.4 select the average salaries in each department from the new table.
+# Sort result by department_id in increasing order.
+SELECT `department_id`, AVG(`salary`) AS 'avg_salary'
+FROM `high_paid_employees`
+GROUP BY `department_id`
+ORDER BY `department_id`;
