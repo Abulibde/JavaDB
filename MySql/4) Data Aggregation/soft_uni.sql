@@ -1941,3 +1941,9 @@ GROUP BY `department_id`
 ORDER BY `department_id`;
 
 # 14.    Employees Maximum Salaries
+SELECT `department_id`, MAX(`salary`) AS 'max_salary'
+FROM `employees`
+GROUP BY `department_id`
+HAVING 30000 > `max_salary`
+    OR `max_salary` > 70000
+ORDER BY `department_id`;
