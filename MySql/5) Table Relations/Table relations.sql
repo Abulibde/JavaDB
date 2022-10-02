@@ -47,3 +47,10 @@ CREATE TABLE `manufacturers`
     `name`             VARCHAR(50),
     `established_on`   DATE
 );
+
+CREATE TABLE `models`
+(
+    `model_id`        INT PRIMARY KEY AUTO_INCREMENT,
+    `name`            VARCHAR(50) UNIQUE,
+    `manifactured_id` INT
+);
