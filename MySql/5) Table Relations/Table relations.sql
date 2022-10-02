@@ -76,5 +76,10 @@ VALUES (101, 'X1', 1),
        (106, 'Nova', 3);
 
 # 03. Many-To-Many Relationship
+CREATE TABLE `students`(
+    `student_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(70) NOT NULL
+);
+
 
 
