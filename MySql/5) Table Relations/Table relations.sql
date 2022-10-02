@@ -81,5 +81,11 @@ CREATE TABLE `students`(
     `name` VARCHAR(70) NOT NULL
 );
 
+INSERT INTO `students`(`name`)
+VALUES
+    ('Mila'),
+    ('Toni'),
+    ('Ron');
+
 
 
