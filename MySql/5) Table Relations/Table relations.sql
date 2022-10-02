@@ -43,14 +43,21 @@ ALTER TABLE `people`
 
 CREATE TABLE `manufacturers`
 (
-    `manufacturers_id` INT PRIMARY KEY AUTO_INCREMENT,
-    `name`             VARCHAR(50),
-    `established_on`   DATE
+    `manufacturer_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name`            VARCHAR(50),
+    `established_on`  DATE
 );
+
 
 CREATE TABLE `models`
 (
     `model_id`        INT PRIMARY KEY AUTO_INCREMENT,
     `name`            VARCHAR(50) UNIQUE,
-    `manifactured_id` INT
+    `manufacturer_id` INT
 );
+
+
+ALTER TABLE `models`
+    ADD CONSTRAINT fk_manufacturers_models
+        FOREIGN KEY (`manufacturer_id`)
+            REFERENCES `manufacturers` (`manufacturer_id`);
