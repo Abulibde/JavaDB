@@ -119,13 +119,35 @@ CREATE TABLE `students_exams`
 );
 
 INSERT INTO `students_exams`(`student_id`, `exam_id`)
-VALUES
-    (1,101),
-    (1,102),
-    (2,101),
-    (3,103),
-    (2,102),
-    (2,103);
+VALUES (1, 101),
+       (1, 102),
+       (2, 101),
+       (3, 103),
+       (2, 102),
+       (2, 103);
 
+# 4.	Self-Referencing
+CREATE TABLE `teachers`
+(
+    `teacher_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name`       VARCHAR(50) NOT NULL,
+    `manager_id` INT
+);
+ALTER TABLE `teachers`
+    AUTO_INCREMENT = 101;
+
+INSERT INTO `teachers`(`name`,`manager_id`)
+VALUES
+    ('John',NULL),
+    ('Maya',106),
+    ('Silvia',106),
+    ('Ted',105),
+    ('Mark',101),
+    ('Greta',101);
+
+ALTER TABLE `teachers`
+ADD CONSTRAINT fk
+FOREIGN KEY (`manager_id`)
+REFERENCES `teachers`(`teacher_id`);
 
 
