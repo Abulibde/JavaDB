@@ -35,3 +35,9 @@ INSERT INTO `people` (`person_id`, `first_name`, `salary`, `passport_id`)
 VALUES (1, 'Roberto', 43300.00, 102),
        (2, 'Tom', 56100.00, 103),
        (3, 'Yana', 60200.00, 101);
+
+ALTER TABLE `people`
+ADD CONSTRAINT `fk_people_passports`
+FOREIGN KEY (`passport_id`)
+REFERENCES `passports`(passport_id);
+
