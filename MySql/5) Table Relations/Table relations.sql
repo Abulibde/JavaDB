@@ -37,7 +37,13 @@ VALUES (1, 'Roberto', 43300.00, 102),
        (3, 'Yana', 60200.00, 101);
 
 ALTER TABLE `people`
-ADD CONSTRAINT `fk_people_passports`
-FOREIGN KEY (`passport_id`)
-REFERENCES `passports`(passport_id);
+    ADD CONSTRAINT `fk_people_passports`
+        FOREIGN KEY (`passport_id`)
+            REFERENCES `passports` (passport_id);
 
+CREATE TABLE `manufacturers`
+(
+    `manufacturers_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name`             VARCHAR(50),
+    `established_on`   DATE
+);
