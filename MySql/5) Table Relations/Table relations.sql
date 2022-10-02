@@ -118,7 +118,14 @@ CREATE TABLE `students_exams`
 
 );
 
-
+INSERT INTO `students_exams`(`student_id`, `exam_id`)
+VALUES
+    (1,101),
+    (1,102),
+    (2,101),
+    (3,103),
+    (2,102),
+    (2,103);
 
 
 
