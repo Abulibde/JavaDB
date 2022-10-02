@@ -61,3 +61,17 @@ ALTER TABLE `models`
     ADD CONSTRAINT fk_manufacturers_models
         FOREIGN KEY (`manufacturer_id`)
             REFERENCES `manufacturers` (`manufacturer_id`);
+
+
+#           manufacturers
+#manufacturer_id	        name	        established_on
+#1  	BMW                                            	01/03/1916
+#2	Tesla	01/01/2003
+#3	Lada	01/05/1966
+
+INSERT INTO `manufacturers`
+VALUES (1, 'BMW', '1916-03-01'),
+       (2, 'Tesla', '2003-01-01'),
+       (3, 'BMW', '1996-05-01');
+
+
