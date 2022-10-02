@@ -59,7 +59,7 @@ VALUES ('BMW', '1916-03-01'),
 
 CREATE TABLE `models`
 (
-    `model_id`       INT PRIMARY KEY AUTO_INCREMENT,
+    `model_id`        INT PRIMARY KEY AUTO_INCREMENT,
     `name`            VARCHAR(70) NOT NULL,
     `manufacturer_id` INT,
     CONSTRAINT fk_models_manufacturers
@@ -76,16 +76,30 @@ VALUES (101, 'X1', 1),
        (106, 'Nova', 3);
 
 # 03. Many-To-Many Relationship
-CREATE TABLE `students`(
+CREATE TABLE `students`
+(
     `student_id` INT PRIMARY KEY AUTO_INCREMENT,
-    `name` VARCHAR(70) NOT NULL
+    `name`       VARCHAR(70) NOT NULL
 );
 
 INSERT INTO `students`(`name`)
-VALUES
-    ('Mila'),
-    ('Toni'),
-    ('Ron');
+VALUES ('Mila'),
+       ('Toni'),
+       ('Ron');
+
+CREATE TABLE `exams`
+(
+    `exam_id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name`    VARCHAR(70) NOT NULL
+);
+ALTER TABLE `exams` AUTO_INCREMENT = 101;
+
+INSERT INTO `exams`(`name`)
+VALUES ('Spring MVC'),
+       ('Neo4j'),
+       ('Oracle 11g');
+
+
 
 
 
