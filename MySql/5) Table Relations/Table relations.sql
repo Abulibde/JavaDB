@@ -1,6 +1,8 @@
 CREATE DATABASE `Table Relations`;
 USE `Table Relations`;
 
+
+# 01. One-To-One Relationship
 CREATE TABLE `people`
 (
     `person_id`   INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,6 +43,7 @@ ALTER TABLE `people`
         FOREIGN KEY (`passport_id`)
             REFERENCES `passports` (passport_id);
 
+# 02. One-To-Many Relationship
 CREATE TABLE `manufacturers`
 (
     `manufacturer_id` INT PRIMARY KEY AUTO_INCREMENT,
@@ -71,5 +74,7 @@ VALUES (101, 'X1', 1),
        (104, 'Model X', 2),
        (105, 'Model 3', 2),
        (106, 'Nova', 3);
+
+# 03. Many-To-Many Relationship
 
 
