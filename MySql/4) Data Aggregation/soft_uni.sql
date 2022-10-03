@@ -1964,3 +1964,14 @@ FROM `employees`
 GROUP BY `department_id`
 HAVING `third_highest_salary` IS NOT NULL
 ORDER BY `department_id`;
+
+# 17.	 Salary Challenge**
+SELECT `first_name`, `last_name`, `department_id`
+FROM `employees` current_employee
+WHERE `salary` > (SELECT AVG(`salary`)
+                  FROM employees other_employees
+                  WHERE current_employee.`department_id` = other_employees.`department_id`)
+ORDER BY `department_id`,`employee_id`
+LIMIT 10;
+
+#
