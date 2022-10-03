@@ -202,3 +202,11 @@ ALTER TABLE `students`
             REFERENCES `majors` (`major_id`);
 
 # 6.3. relation between double table agenda and student and subjects
+ALTER TABLE `agenda`
+    ADD CONSTRAINT fk_agenda_subjects
+        FOREIGN KEY (`subject_id`)
+            REFERENCES `subjects` (`subject_id`),
+
+    ADD CONSTRAINT fk_agenda_students
+        FOREIGN KEY (`student_id`)
+            REFERENCES `students` (`student_id`);
