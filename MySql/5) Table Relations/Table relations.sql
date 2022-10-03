@@ -136,21 +136,62 @@ CREATE TABLE `teachers`
 ALTER TABLE `teachers`
     AUTO_INCREMENT = 101;
 
-INSERT INTO `teachers`(`name`,`manager_id`)
-VALUES
-    ('John',NULL),
-    ('Maya',106),
-    ('Silvia',106),
-    ('Ted',105),
-    ('Mark',101),
-    ('Greta',101);
+INSERT INTO `teachers`(`name`, `manager_id`)
+VALUES ('John', NULL),
+       ('Maya', 106),
+       ('Silvia', 106),
+       ('Ted', 105),
+       ('Mark', 101),
+       ('Greta', 101);
 
 ALTER TABLE `teachers`
-ADD CONSTRAINT fk
-FOREIGN KEY (`manager_id`)
-REFERENCES `teachers`(`teacher_id`);
+    ADD CONSTRAINT fk
+        FOREIGN KEY (`manager_id`)
+            REFERENCES `teachers` (`teacher_id`);
 
 #todo 5.	Online Store Database
 
 # 6.	University Database
+CREATE DATABASE `University database`;
+USE `University database`;
+
+CREATE TABLE `subjects`
+(
+    `subject_id`   INT(11) PRIMARY KEY AUTO_INCREMENT,
+    `subject_name` VARCHAR(50)
+);
+
+CREATE TABLE `majors`
+(
+    `major_id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+    `name`     VARCHAR(50)
+);
+
+CREATE TABLE `payments`
+(
+    `payment_id`     INT PRIMARY KEY AUTO_INCREMENT,
+    `payment_date`   DATE,
+    `payment_amount` DECIMAL(8, 2),
+    `student_id`     INT(11)
+);
+
+CREATE TABLE `students`
+(
+    `student_id`     INT PRIMARY KEY AUTO_INCREMENT,
+    `student_number` VARCHAR(12) UNIQUE,
+    `student_name`   VARCHAR(50),
+    `major_id`       INT
+);
+
+CREATE TABLE `agenda`
+(
+    `student_id` INT NOT NULL,
+    `subject_id` INT NOT NULL
+);
+
+# 6.1. relation between payments and students tables
+ALTER TABLE `payments`
+    ADD CONSTRAINT fk_payments_students
+        FOREIGN KEY (`student_id`)
+            REFERENCES `students` (`student_id`);
 
