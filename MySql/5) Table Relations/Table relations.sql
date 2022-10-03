@@ -195,3 +195,5 @@ ALTER TABLE `payments`
         FOREIGN KEY (`student_id`)
             REFERENCES `students` (`student_id`);
 
+# 6.2. relation between students and majors tables
+
