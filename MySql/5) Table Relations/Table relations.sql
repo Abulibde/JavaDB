@@ -196,4 +196,7 @@ ALTER TABLE `payments`
             REFERENCES `students` (`student_id`);
 
 # 6.2. relation between students and majors tables
-
+ALTER TABLE `students`
+    ADD CONSTRAINT fk_students_majors
+        FOREIGN KEY (`major_id`)
+            REFERENCES `majors` (`major_id`);
