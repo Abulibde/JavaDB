@@ -1974,4 +1974,4 @@ WHERE `salary` > (SELECT AVG(`salary`)
 ORDER BY `department_id`,`employee_id`
 LIMIT 10;
 
-#
+# 18.	Departments Total Salaries
