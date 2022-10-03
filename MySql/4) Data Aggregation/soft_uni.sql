@@ -1975,3 +1975,7 @@ ORDER BY `department_id`,`employee_id`
 LIMIT 10;
 
 # 18.	Departments Total Salaries
+SELECT `department_id`, SUM(`salary`)AS'total_salary'
+FROM `employees`
+GROUP BY `department_id`
+ORDER BY `department_id`;
