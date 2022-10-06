@@ -1931,3 +1931,5 @@ FROM employees AS e
 ORDER BY `first_name`,
          `last_name`
 LIMIT 5;
+
+# 3.	Sales Employee
