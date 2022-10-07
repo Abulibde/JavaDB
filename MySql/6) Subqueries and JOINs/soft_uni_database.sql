@@ -1990,3 +1990,5 @@ FROM `employees` AS e,
 WHERE e.`manager_id` = m.`employee_id`
   AND e.manager_id IN (3, 7)
 ORDER BY `first_name`;
+
+# 10.	Employee Summary
