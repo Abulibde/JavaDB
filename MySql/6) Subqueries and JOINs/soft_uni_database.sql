@@ -2002,3 +2002,5 @@ FROM `employees` AS e
 WHERE e.manager_id IS NOT NULL
 ORDER BY `employee_id`
 LIMIT 5;
+
+# 11.	Min Average Salary
