@@ -1939,11 +1939,7 @@ JOIN departments d on d.department_id = e.department_id
 WHERE `name` LIKE 'Sales'
 ORDER BY `employee_id`DESC;
 
-
-
-
-
-
+# 4.	Employee Departments
 SELECT e.`employee_id`, e.`first_name`, e.`salary`, d.`name`
 FROM `employees` AS e
 JOIN departments AS d ON d.department_id = e.department_id
