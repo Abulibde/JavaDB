@@ -1933,29 +1933,35 @@ ORDER BY `first_name`,
 LIMIT 5;
 
 # 3.	Sales Employee
-SELECT e.`employee_id`,e.`first_name`,e.`last_name`,d.`name`
+SELECT e.`employee_id`, e.`first_name`, e.`last_name`, d.`name`
 FROM `employees` AS e
-JOIN departments d on d.department_id = e.department_id
+         JOIN departments d on d.department_id = e.department_id
 WHERE `name` LIKE 'Sales'
-ORDER BY `employee_id`DESC;
+ORDER BY `employee_id` DESC;
 
 # 4.	Employee Departments
 SELECT e.`employee_id`, e.`first_name`, e.`salary`, d.`name`
 FROM `employees` AS e
-JOIN departments AS d ON d.department_id = e.department_id
+         JOIN departments AS d ON d.department_id = e.department_id
 WHERE salary > 15000
-ORDER BY d.`department_id`DESC
+ORDER BY d.`department_id` DESC
 LIMIT 5;
 
 # 5.	Employees Without Project
-SELECT e.`employee_id`,e.`first_name`
+SELECT e.`employee_id`, e.`first_name`
 FROM `employees` AS e
-LEFT JOIN `employees_projects` AS ep ON e.employee_id = ep.employee_id
+         LEFT JOIN `employees_projects` AS ep ON e.employee_id = ep.employee_id
 WHERE ep.`project_id` IS NULL
 ORDER BY e.`employee_id` DESC
 LIMIT 3;
 
 # 6.	Employees Hired After
+SELECT e.`first_name`, e.`last_name`, e.`hire_date`, d.`name` AS 'dept_name'
+FROM `employees` AS e
+         JOIN departments AS d ON d.department_id = e.department_id
+WHERE e.`hire_date` > '1990-01-01 00:00:00'
+  AND d.`name` IN ('Sales', 'Finance')
+ORDER BY hire_date;
 
 
 
