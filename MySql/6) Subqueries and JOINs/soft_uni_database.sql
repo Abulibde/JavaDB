@@ -1963,5 +1963,5 @@ WHERE e.`hire_date` > '1990-01-01 00:00:00'
   AND d.`name` IN ('Sales', 'Finance')
 ORDER BY hire_date;
 
-
+# 7.	Employees with Project
 
