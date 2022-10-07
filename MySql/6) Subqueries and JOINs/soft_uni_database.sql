@@ -1972,3 +1972,5 @@ WHERE DATE(p.`start_date`) > '2002-08-13'
   AND p.`end_date` IS NULL
 ORDER BY e.`first_name`, `project_name`
 LIMIT 5;
+
+# 8.	Employee 24
