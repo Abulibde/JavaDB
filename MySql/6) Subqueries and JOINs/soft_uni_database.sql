@@ -2004,3 +2004,4 @@ ORDER BY `employee_id`
 LIMIT 5;
 
 # 11.	Min Average Salary
+SELECT AVG(`salary`)
