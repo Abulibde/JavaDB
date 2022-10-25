@@ -12,7 +12,7 @@ public class _1_GetVilliansNames {
                     " having minions_count > ?" +
                     " order by minions_count";
 
-    private static final String COLUMN_LABEL_NAME = "name";
+
     private static final String COLUMN_LABEL_MINIONS_COUNT = "minions_count";
     private static final String PRINT_FORMAT = "%s %d";
 
@@ -26,7 +26,7 @@ public class _1_GetVilliansNames {
         final ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
-            final String villainsName = resultSet.getString(COLUMN_LABEL_NAME);
+            final String villainsName = resultSet.getString(Constants.COLUMN_LABEL_NAME);
             final int minionsCount = resultSet.getInt(COLUMN_LABEL_MINIONS_COUNT);
 
             System.out.printf(PRINT_FORMAT, villainsName, minionsCount);
@@ -34,3 +34,4 @@ public class _1_GetVilliansNames {
         connection.close();
     }
 }
+
