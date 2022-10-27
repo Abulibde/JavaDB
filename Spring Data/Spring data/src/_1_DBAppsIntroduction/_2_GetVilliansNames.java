@@ -1,9 +1,8 @@
 package _1_DBAppsIntroduction;
 
 import java.sql.*;
-import java.util.Properties;
 
-public class _1_GetVilliansNames {
+public class _2_GetVilliansNames {
     private static final String GET_VILLAINS_NAMES =
             "SELECT v.name, count(distinct mv.minion_id) AS minions_count" +
                     " FROM villains v" +
