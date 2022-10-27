@@ -32,6 +32,8 @@ public class _6_RemoveVillain {
 
         if (!villainSet.next()) {
             System.out.println(NO_SUCH_VILLAIN_MESSAGE);
+
+            connection.close();
             return;
         }
 
