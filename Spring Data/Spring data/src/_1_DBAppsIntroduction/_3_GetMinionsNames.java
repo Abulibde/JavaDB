@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class _2_GetMinionsNames {
+public class _3_GetMinionsNames {
     private static final String GET_MINIONS_NAME_AND_AGE_BY_VILLAIN_ID =
             "SELECT m.name, m.age" +
                     " FROM minions as m" +
