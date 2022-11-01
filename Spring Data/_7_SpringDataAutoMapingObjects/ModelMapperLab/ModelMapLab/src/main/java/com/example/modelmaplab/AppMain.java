@@ -32,11 +32,18 @@ public class AppMain implements CommandLineRunner {
 
         Scanner scanner = new Scanner(System.in);
 
-        createEmployee(scanner);
+        printAllEmployees();
 
-        // createAddress(scanner);
+//        createEmployee(scanner);
+
+//        createAddress(scanner);
 
 
+    }
+
+    private void printAllEmployees() {
+        this.employeeService.findAll()
+                .forEach(System.out::println);
     }
 
     private void createEmployee(Scanner scanner) {
