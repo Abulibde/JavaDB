@@ -7,11 +7,14 @@ import com.example.modelmaplab.domain.entities.Employee;
 import com.example.modelmaplab.repositories.AddressRepository;
 import com.example.modelmaplab.repositories.EmployeeRepository;
 import jakarta.transaction.Transactional;
+import org.hibernate.internal.build.AllowPrintStacktrace;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.beans.Transient;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -20,15 +23,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final AddressRepository addressRepository;
     private final EmployeeRepository employeeRepository;
 
+    private final ModelMapper modelMapper;
+
+    @Autowired
     public EmployeeServiceImpl(AddressRepository addressRepository, EmployeeRepository employeeRepository) {
         this.addressRepository = addressRepository;
         this.employeeRepository = employeeRepository;
+        this.modelMapper = new ModelMapper();
     }
 
     @Override
     @Transactional
     public Employee create(CreateEmployeeDTO employeeDTO) {
-        ModelMapper modelMapper = new ModelMapper();
 
         Employee employee = modelMapper.map(employeeDTO, Employee.class);
 
@@ -39,5 +45,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         address.ifPresent(employee::setAddress);
 
         return this.employeeRepository.save(employee);
+    }
+
+    @Override
+    public List<EmployeeDTO> findAll() {
+
+        return this.employeeRepository.findAll()
+                .stream()
+                .map(employee -> modelMapper.map(employee, EmployeeDTO.class))
+                .collect(Collectors.toList());
     }
 }
