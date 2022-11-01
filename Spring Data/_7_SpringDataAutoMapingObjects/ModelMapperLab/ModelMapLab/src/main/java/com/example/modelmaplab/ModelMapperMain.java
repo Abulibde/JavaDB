@@ -27,7 +27,7 @@ public class ModelMapperMain implements CommandLineRunner {
          */
 
         TypeMap<Employee, EmployeeDTO> typeMap = mapper.createTypeMap(Employee.class, EmployeeDTO.class);
-        typeMap.addMapping(employee -> employee.getAddress().getCity(), EmployeeDTO::setCity);
+        typeMap.addMapping(employee -> employee.getAddress().getCity(), EmployeeDTO::setAddressCity);
 
         Address address = new Address("Bulgaria", "Sofia");
 
