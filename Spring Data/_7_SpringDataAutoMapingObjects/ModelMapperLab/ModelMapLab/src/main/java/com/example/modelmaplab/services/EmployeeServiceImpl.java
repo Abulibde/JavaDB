@@ -7,7 +7,6 @@ import com.example.modelmaplab.domain.entities.Employee;
 import com.example.modelmaplab.repositories.AddressRepository;
 import com.example.modelmaplab.repositories.EmployeeRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.internal.build.AllowPrintStacktrace;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +25,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final ModelMapper modelMapper;
 
     @Autowired
-    public EmployeeServiceImpl(AddressRepository addressRepository, EmployeeRepository employeeRepository) {
+    public EmployeeServiceImpl(AddressRepository addressRepository, EmployeeRepository employeeRepository, ModelMapper modelMapper) {
         this.addressRepository = addressRepository;
         this.employeeRepository = employeeRepository;
-        this.modelMapper = new ModelMapper();
+        this.modelMapper = modelMapper;
     }
 
     @Override
