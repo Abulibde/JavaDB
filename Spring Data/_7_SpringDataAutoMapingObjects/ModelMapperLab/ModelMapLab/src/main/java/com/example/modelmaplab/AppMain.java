@@ -5,6 +5,7 @@ import com.example.modelmaplab.domain.DTO.CreateEmployeeDTO;
 import com.example.modelmaplab.domain.entities.Address;
 import com.example.modelmaplab.services.AddressService;
 import com.example.modelmaplab.services.EmployeeService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,18 +20,18 @@ public class AppMain implements CommandLineRunner {
 
     private final AddressService addressService;
     private final EmployeeService employeeService;
+    private final Scanner scanner;
 
     @Autowired
-    public AppMain(AddressService addressService, EmployeeService employeeService) {
+    public AppMain(AddressService addressService, EmployeeService employeeService, ModelMapper modelMapper, Scanner scanner) {
         this.addressService = addressService;
         this.employeeService = employeeService;
+        this.scanner = scanner;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
-
-        Scanner scanner = new Scanner(System.in);
 
         printAllEmployees();
 
@@ -46,8 +47,7 @@ public class AppMain implements CommandLineRunner {
                 .forEach(System.out::println);
     }
 
-    private void createEmployee(Scanner scanner) {
-
+    private void createEmployee() {
         String firstName = scanner.nextLine();
         BigDecimal salary = new BigDecimal(scanner.nextLine());
         LocalDate birthday = LocalDate.parse(scanner.nextLine());
@@ -62,15 +62,12 @@ public class AppMain implements CommandLineRunner {
         CreateEmployeeDTO employeeDTO = new CreateEmployeeDTO
                 (firstName, null, salary, birthday, address);
 
-
         this.employeeService.create(employeeDTO);
 
         System.out.println(employeeDTO);
-
-
     }
 
-    private void createAddress(Scanner scanner) {
+    private void createAddress() {
         String country = scanner.nextLine();
         String city = scanner.nextLine();
 
