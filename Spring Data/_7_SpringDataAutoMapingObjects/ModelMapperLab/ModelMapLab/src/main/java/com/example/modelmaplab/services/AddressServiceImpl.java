@@ -9,18 +9,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AddressServiceImpl implements AddressService {
-    private AddressRepository addressRepository;
+    private final AddressRepository addressRepository;
+
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public AddressServiceImpl(AddressRepository addressRepository) {
+    public AddressServiceImpl(AddressRepository addressRepository, ModelMapper modelMapper) {
         this.addressRepository = addressRepository;
+        this.modelMapper = modelMapper;
     }
 
 
     @Override
     public Address create(CreateAddressDTO data) {
-
-        ModelMapper modelMapper = new ModelMapper();
 
         Address address = modelMapper.map(data, Address.class);
 
