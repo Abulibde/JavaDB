@@ -4,7 +4,9 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "employees")
@@ -127,5 +129,19 @@ public class Employee {
 
     public void setProjects(Set<Project> projects) {
         this.projects = projects;
+    }
+
+    @Override
+    public String toString() {
+        //Linda Randall - Production Technician
+        //	                            HL Touring Handlebars
+        //	                            ML Road Rear Wheel
+        //	                            Patch kit
+        //	                            Touring-1000
+        return firstName + " " + lastName + " - " + jobTitle + System.lineSeparator()
+                + projects.stream()
+                .sorted(Comparator.comparing(Project::getName))
+                .map(Project::getName)
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 }
