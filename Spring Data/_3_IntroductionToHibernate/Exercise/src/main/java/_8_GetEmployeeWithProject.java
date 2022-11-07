@@ -21,8 +21,26 @@ Input	                        Output
 
  */
 
-public class _8_GetEmployeeWithProject {
-    public static void main(String[] args) {
+import entities.Employee;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import java.util.Scanner;
+
+public class _8_GetEmployeeWithProject {
+    public static final String DATABASE_NAME = "soft_uni";
+    public static final String GET_EMPLOYEE_BY_ID = "SELECT e FROM Employee e WHERE e.id = :id";
+    public static void main(String[] args) {
+        EntityManager entityManager = Persistence
+                .createEntityManagerFactory(DATABASE_NAME)
+                .createEntityManager();
+
+        int employeeId = new Scanner(System.in).nextInt();
+
+        System.out.println(entityManager.createQuery(GET_EMPLOYEE_BY_ID, Employee.class)
+                .setParameter("id",employeeId)
+                .getSingleResult()
+                .toString());
+        
     }
 }
