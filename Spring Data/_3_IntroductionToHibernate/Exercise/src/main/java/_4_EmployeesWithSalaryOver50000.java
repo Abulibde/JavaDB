@@ -17,7 +17,6 @@ public class _4_EmployeesWithSalaryOver50000 {
                 .getResultList()
                 .forEach(System.out::println);
 
-        entityManager.getTransaction().commit();
         entityManager.close();
     }
 }
