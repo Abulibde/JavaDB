@@ -37,7 +37,5 @@ public class _10_IncreaseSalary {
                         e.getSalary()));
 
         entityManager.close();
-
-
     }
 }
