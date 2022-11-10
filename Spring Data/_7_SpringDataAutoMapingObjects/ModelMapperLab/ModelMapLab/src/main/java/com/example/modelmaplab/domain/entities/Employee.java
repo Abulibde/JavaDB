@@ -30,7 +30,7 @@ public class Employee {
     @Column(nullable = false)
     private LocalDate birthday;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private Address address;
 
     public Employee(){}
