@@ -18,4 +18,12 @@ public class CreateAddressDTO {
     public String getCity() {
         return city;
     }
+
+    @Override
+    public String toString() {
+        return "CreateAddressDTO{" +
+                "country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }
