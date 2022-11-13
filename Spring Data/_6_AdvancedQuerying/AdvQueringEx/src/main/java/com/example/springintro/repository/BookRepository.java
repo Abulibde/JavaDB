@@ -3,6 +3,7 @@ package com.example.springintro.repository;
 import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Book;
 import com.example.springintro.model.entity.EditionType;
+import com.example.springintro.model.entity.dto.BookInformation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,6 +13,7 @@ import javax.print.attribute.standard.Copies;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
@@ -38,6 +40,15 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT COUNT(b) FROM Book AS b WHERE LENGTH(b.title) > :length")
     int findCountOfBooksWithTitleLongerThan(int length);
+
+
+    @Query("SELECT b.title AS title," +
+            " b.editionType AS editionType," +
+            " b.ageRestriction AS ageRestriction," +
+            " b.price AS price " +
+            "FROM Book AS b " +
+            "WHERE b.title = :title")
+    BookInformation findInformationForTitle(String title);
 }
 
 
