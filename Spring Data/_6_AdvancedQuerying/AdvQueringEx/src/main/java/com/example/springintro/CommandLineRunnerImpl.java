@@ -2,6 +2,7 @@ package com.example.springintro;
 
 import com.example.springintro.model.entity.Book;
 import com.example.springintro.model.entity.EditionType;
+import com.example.springintro.model.entity.dto.BookInformation;
 import com.example.springintro.service.AuthorService;
 import com.example.springintro.service.BookService;
 import com.example.springintro.service.CategoryService;
@@ -30,11 +31,21 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // seedData();
 
-        int length = new Scanner(System.in).nextInt();
+        String title = new Scanner(System.in).nextLine();
 
-        countBookWithTitleLongerThan(length);
+        printInformationForTitle(title);
 
 
+    }
+
+    private void printInformationForTitle(String title) {
+        BookInformation informationForTitle = bookService.getInformationForTitle(title);
+
+        System.out.printf("%s %s %s %.2f%n",
+                informationForTitle.getTitle(),
+                informationForTitle.getEditionType(),
+                informationForTitle.getAgeRestriction(),
+                informationForTitle.getPrice());
     }
 
     private void countBookWithTitleLongerThan(int length) {
