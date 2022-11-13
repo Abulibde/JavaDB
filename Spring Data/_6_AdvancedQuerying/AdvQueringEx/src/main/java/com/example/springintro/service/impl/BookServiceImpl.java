@@ -1,6 +1,7 @@
 package com.example.springintro.service.impl;
 
 import com.example.springintro.model.entity.*;
+import com.example.springintro.model.entity.dto.BookInformation;
 import com.example.springintro.repository.BookRepository;
 import com.example.springintro.service.AuthorService;
 import com.example.springintro.service.BookService;
@@ -84,6 +85,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public int countBooksWithTitleLongerThan(int length) {
         return bookRepository.findCountOfBooksWithTitleLongerThan(length);
+    }
+
+    @Override
+    public BookInformation getInformationForTitle(String title) {
+        return bookRepository.findInformationForTitle(title);
     }
 
 
