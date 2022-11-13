@@ -3,6 +3,7 @@ package com.example.springintro.service;
 import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Book;
 import com.example.springintro.model.entity.EditionType;
+import com.example.springintro.model.entity.dto.BookInformation;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -33,4 +34,6 @@ public interface BookService {
     List<Book> findByAuthorLastNameStartingWith(String search);
 
     int countBooksWithTitleLongerThan(int length);
+
+    BookInformation getInformationForTitle(String title);
 }
