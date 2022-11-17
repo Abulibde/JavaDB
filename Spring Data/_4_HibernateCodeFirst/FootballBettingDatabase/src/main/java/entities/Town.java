@@ -19,3 +19,4 @@ public class Town extends BaseEntity {
     @ManyToOne()
     private Country country;
 }
+
