@@ -7,7 +7,11 @@ import net.bytebuddy.implementation.bind.annotation.DefaultCall;
 
 import javax.persistence.*;
 
-
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table
 public class Player extends BaseEntity {
 
     @Column(nullable = false)
