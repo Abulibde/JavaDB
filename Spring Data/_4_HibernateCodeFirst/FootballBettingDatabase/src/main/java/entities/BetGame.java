@@ -1,3 +1,5 @@
+package entities;
+
 import entities.Bet;
 import entities.Game;
 import entities.ResultPrediction;
