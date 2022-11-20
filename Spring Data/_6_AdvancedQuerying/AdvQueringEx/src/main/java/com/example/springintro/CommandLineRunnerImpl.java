@@ -30,11 +30,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // seedData();
 
-        String search = new Scanner(System.in).nextLine();
+        int length = new Scanner(System.in).nextInt();
 
-        printBookTitlesWithAuthorLastNameStartingWith(search);
+        countBookWithTitleLongerThan(length);
 
 
+    }
+
+    private void countBookWithTitleLongerThan(int length) {
+        int count = this.bookService.countBooksWithTitleLongerThan(length);
+        System.out.printf("There are %d books with longer title than %d symbols", count, length);
     }
 
     private void printBookTitlesWithAuthorLastNameStartingWith(String search) {
