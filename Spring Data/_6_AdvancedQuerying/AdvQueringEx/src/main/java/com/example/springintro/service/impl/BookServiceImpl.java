@@ -81,6 +81,11 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findByAuthorLastNameStartingWith(search);
     }
 
+    @Override
+    public int countBooksWithTitleLongerThan(int length) {
+        return bookRepository.findCountOfBooksWithTitleLongerThan(length);
+    }
+
 
     @Override
     public void seedBooks() throws IOException {
