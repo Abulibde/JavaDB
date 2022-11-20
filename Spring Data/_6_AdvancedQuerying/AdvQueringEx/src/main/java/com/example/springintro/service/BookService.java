@@ -31,4 +31,6 @@ public interface BookService {
     public List<String> findByFirstnameContaining(String search);
 
     List<Book> findByAuthorLastNameStartingWith(String search);
+
+    int countBooksWithTitleLongerThan(int length);
 }
