@@ -29,4 +29,6 @@ public interface BookService {
     List<Book> findByReleaseDateBefore(String date);
 
     public List<String> findByFirstnameContaining(String search);
+
+    List<Book> findByAuthorLastNameStartingWith(String search);
 }
