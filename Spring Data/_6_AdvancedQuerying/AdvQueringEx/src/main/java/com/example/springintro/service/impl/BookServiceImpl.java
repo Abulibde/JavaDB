@@ -76,6 +76,11 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<Book> findByAuthorLastNameStartingWith(String search) {
+        return bookRepository.findByAuthorLastNameStartingWith(search);
+    }
+
 
     @Override
     public void seedBooks() throws IOException {
