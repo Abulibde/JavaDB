@@ -32,9 +32,17 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
         String search = new Scanner(System.in).nextLine();
 
-        printBookTitlesWithNameContaining(search);
+        printBookTitlesWithAuthorLastNameStartingWith(search);
 
 
+    }
+
+    private void printBookTitlesWithAuthorLastNameStartingWith(String search) {
+        bookService.findByAuthorLastNameStartingWith(search)
+                .forEach(book -> System.out.printf("%s (%s %s)%n",
+                        book.getTitle(),
+                        book.getAuthor().getFirstName(),
+                        book.getAuthor().getLastName()));
     }
 
     private void printBookTitlesWithNameContaining(String search) {
