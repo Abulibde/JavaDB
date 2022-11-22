@@ -23,6 +23,13 @@ public class AuthorServiceImpl implements AuthorService {
         this.authorRepository = authorRepository;
     }
 
+
+
+    @Override
+    public List<Author> findAllAuthorsNamesEndsWith(String endsWith) {
+        return authorRepository.findAuthorsByFirstNameEndingWith(endsWith);
+    }
+
     @Override
     public void seedAuthors() throws IOException {
         if (authorRepository.count() > 0) {
@@ -62,8 +69,5 @@ public class AuthorServiceImpl implements AuthorService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public List<Author> findAllAuthorsNamesEndsWith(String endsWith) {
-        return authorRepository.findAuthorsByFirstNameEndingWith(endsWith);
-    }
+
 }
