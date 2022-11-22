@@ -30,6 +30,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findByPriceLessThanOrPriceGreaterThan(BigDecimal lower, BigDecimal upper);
 
     List<Book> findAllByReleaseDateBeforeOrReleaseDateAfter(LocalDate before, LocalDate after);
+
+    List<Book> findByTitleContaining(String search);
 }
 
 
