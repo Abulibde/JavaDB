@@ -68,6 +68,14 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllByReleaseDateBefore(before);
     }
 
+    @Override
+    public List<String> findByFirstnameContaining(String search) {
+        return bookRepository.findByTitleContaining(search)
+                .stream()
+                .map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
 
     @Override
     public void seedBooks() throws IOException {
