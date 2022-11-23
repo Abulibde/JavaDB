@@ -30,11 +30,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // seedData();
 
-        String date = new Scanner(System.in).nextLine();
+        String endsWith = new Scanner(System.in).nextLine();
 
-        printAllBookTitlesBeforeDate(date);
+        printAllAuthorsNamesEndsWith(endsWith);
 
 
+    }
+
+    private void printAllAuthorsNamesEndsWith(String endsWith) {
+        authorService.findAllAuthorsNamesEndsWith(endsWith)
+                .forEach(a -> System.out.println(a.getFirstName() + " " + a.getLastName()));
     }
 
     private void printAllBookTitlesBeforeDate(String date) {
