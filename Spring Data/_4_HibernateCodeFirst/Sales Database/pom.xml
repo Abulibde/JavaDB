@@ -21,7 +21,7 @@
         </plugins>
     </build>
     <modules>
-        <module>Sales Database</module>
+        <module></module>
     </modules>
 
     <dependencies>
