@@ -30,18 +30,22 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // seedData();
 
-        int year = new Scanner(System.in).nextInt();
+        String date = new Scanner(System.in).nextLine();
 
-        LocalDate before =LocalDate.of(year, 1, 1);
-        LocalDate after =LocalDate.of(year, 12, 31);
+        printAllBookTitlesBeforeDate(date);
 
-        printAllBookTitlesNotReleasedInYear(before,after);
 
     }
 
+    private void printAllBookTitlesBeforeDate(String date) {
+        bookService.findByReleaseDateBefore(date)
+                .forEach(b -> System.out.printf("%s %s %.2f%n",
+                        b.getTitle(), b.getEditionType(), b.getPrice()));
+    }
+
     private void printAllBookTitlesNotReleasedInYear(LocalDate before, LocalDate after) {
-        bookService.findAllBookTitlesBeforeDateOrAfterDate(before,after)
-                .forEach(b-> System.out.println(b.getTitle()));
+        bookService.findAllBookTitlesBeforeDateOrAfterDate(before, after)
+                .forEach(b -> System.out.println(b.getTitle()));
     }
 
     private void printBookTitlesAndPricesWithPriceLowerThanAndPriceUpperThan(BigDecimal upperBoundary, BigDecimal lowerBoundary) {
