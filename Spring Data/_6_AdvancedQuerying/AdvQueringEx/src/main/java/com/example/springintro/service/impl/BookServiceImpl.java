@@ -59,6 +59,15 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllByReleaseDateBeforeOrReleaseDateAfter(before, after);
     }
 
+    @Override
+    public List<Book> findByReleaseDateBefore(String date) {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate before = LocalDate.parse(date, formatter);
+
+        return bookRepository.findAllByReleaseDateBefore(before);
+    }
+
 
     @Override
     public void seedBooks() throws IOException {
