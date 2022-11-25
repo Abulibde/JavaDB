@@ -25,4 +25,6 @@ public interface BookService {
     List<Book> findByPriceLessThanOrPriceGreaterThan(BigDecimal lower, BigDecimal upper);
 
     List<Book> findAllBookTitlesBeforeDateOrAfterDate(LocalDate before, LocalDate after);
+
+    List<Book> findByReleaseDateBefore(String date);
 }
