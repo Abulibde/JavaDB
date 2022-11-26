@@ -1,6 +1,7 @@
 package com.example.springintro;
 
 import com.example.springintro.model.entity.Book;
+import com.example.springintro.model.entity.EditionType;
 import com.example.springintro.service.AuthorService;
 import com.example.springintro.service.BookService;
 import com.example.springintro.service.CategoryService;
@@ -27,14 +28,20 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // seedData();
 
-        Scanner scanner = new Scanner(System.in);
-        String restriction = scanner.nextLine();
 
+        int copies = 5000;
+
+        this.bookService.findAllTitlesByCopiesLessThan(EditionType.GOLD, copies)
+                .forEach(System.out::println);
+
+    }
+
+    private void printAllBookTitlesByAgeRestriction(String restriction) {
         this.bookService.findAllTitlesByAgeRestriction(restriction)
                 .forEach(System.out::println);
     }
 
-    private void printALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
+    private void printAllBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
         bookService
                 .findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(firstName, lastName)
                 .forEach(System.out::println);
