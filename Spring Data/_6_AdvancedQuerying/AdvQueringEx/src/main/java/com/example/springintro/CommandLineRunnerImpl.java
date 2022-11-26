@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Scanner;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -28,15 +30,22 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // seedData();
 
-        BigDecimal upperBoundary = new BigDecimal(40);
-        BigDecimal lowerBoundary = new BigDecimal(5);
+        int year = new Scanner(System.in).nextInt();
 
-        printBookTitlesAndPricesWithPriceLowerThanAndPriceUpperThan(upperBoundary,lowerBoundary);
+        LocalDate before =LocalDate.of(year, 1, 1);
+        LocalDate after =LocalDate.of(year, 12, 31);
+
+        printAllBookTitlesNotReleasedInYear(before,after);
 
     }
 
+    private void printAllBookTitlesNotReleasedInYear(LocalDate before, LocalDate after) {
+        bookService.findAllBookTitlesBeforeDateOrAfterDate(before,after)
+                .forEach(b-> System.out.println(b.getTitle()));
+    }
+
     private void printBookTitlesAndPricesWithPriceLowerThanAndPriceUpperThan(BigDecimal upperBoundary, BigDecimal lowerBoundary) {
-        this.bookService.findByPriceLessThanOrPriceGreaterThan(lowerBoundary,upperBoundary)
+        this.bookService.findByPriceLessThanOrPriceGreaterThan(lowerBoundary, upperBoundary)
                 .forEach(book -> System.out.println(book.getTitle() + " - " + book.getPrice()));
     }
 
