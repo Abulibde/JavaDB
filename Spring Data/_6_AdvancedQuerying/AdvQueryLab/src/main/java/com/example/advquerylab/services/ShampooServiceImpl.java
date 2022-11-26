@@ -1,5 +1,6 @@
 package com.example.advquerylab.services;
 
+import com.example.advquerylab.entities.Ingredient;
 import com.example.advquerylab.entities.Shampoo;
 import com.example.advquerylab.entities.Size;
 import com.example.advquerylab.repositories.ShampooRepository;
@@ -45,5 +46,10 @@ public class ShampooServiceImpl implements ShampooService {
     public List<Shampoo> findWithPriceGreaterThen(String price){
         BigDecimal parsed = new BigDecimal(price);
         return this.shampooRepository.findByPriceGreaterThanOrderByPriceDesc(parsed);
+    }
+
+    @Override
+    public List<Ingredient> selectByName(String name) {
+        return null;
     }
 }
