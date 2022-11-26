@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 @Component
@@ -28,12 +29,21 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // seedData();
 
+        BigDecimal upperBoundary = new BigDecimal(40);
+        BigDecimal lowerBoundary = new BigDecimal(5);
 
-        int copies = 5000;
+        printBookTitlesAndPricesWithPriceLowerThanAndPriceUpperThan(upperBoundary,lowerBoundary);
 
+    }
+
+    private void printBookTitlesAndPricesWithPriceLowerThanAndPriceUpperThan(BigDecimal upperBoundary, BigDecimal lowerBoundary) {
+        this.bookService.findByPriceLessThanOrPriceGreaterThan(lowerBoundary,upperBoundary)
+                .forEach(book -> System.out.println(book.getTitle() + " - " + book.getPrice()));
+    }
+
+    private void printAllBookTitlesByEditionTypeAndCopiesLessThan(EditionType editionType, int copies) {
         this.bookService.findAllTitlesByCopiesLessThan(EditionType.GOLD, copies)
                 .forEach(System.out::println);
-
     }
 
     private void printAllBookTitlesByAgeRestriction(String restriction) {
