@@ -54,6 +54,11 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findByPriceLessThanOrPriceGreaterThan(lower, upper);
     }
 
+    @Override
+    public List<Book> findAllBookTitlesBeforeDateOrAfterDate(LocalDate before, LocalDate after) {
+        return bookRepository.findAllByReleaseDateBeforeOrReleaseDateAfter(before, after);
+    }
+
 
     @Override
     public void seedBooks() throws IOException {
