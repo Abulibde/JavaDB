@@ -6,6 +6,7 @@ import com.example.springintro.model.entity.EditionType;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface BookService {
@@ -23,4 +24,5 @@ public interface BookService {
 
     List<Book> findByPriceLessThanOrPriceGreaterThan(BigDecimal lower, BigDecimal upper);
 
+    List<Book> findAllBookTitlesBeforeDateOrAfterDate(LocalDate before, LocalDate after);
 }
