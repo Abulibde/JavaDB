@@ -42,4 +42,13 @@ public class Ingredient extends BaseEntity {
     public void setShampoos(Set<Shampoo> shampoos) {
         this.shampoos = shampoos;
     }
+
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
