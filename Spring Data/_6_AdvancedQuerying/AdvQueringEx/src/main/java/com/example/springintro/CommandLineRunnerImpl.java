@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
@@ -24,16 +25,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        seedData();
+        // seedData();
 
-        //printAllBooksAfterYear(2000);
-//        printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
-     //   printAllAuthorsAndNumberOfTheirBooks();
-        pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
+        Scanner scanner = new Scanner(System.in);
+        String restriction = scanner.nextLine();
 
+        this.bookService.findAllTitlesByAgeRestriction(restriction)
+                .forEach(System.out::println);
     }
 
-    private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
+    private void printALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
         bookService
                 .findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(firstName, lastName)
                 .forEach(System.out::println);
