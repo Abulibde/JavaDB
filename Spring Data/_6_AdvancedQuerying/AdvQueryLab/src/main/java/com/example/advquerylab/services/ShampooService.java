@@ -1,5 +1,6 @@
 package com.example.advquerylab.services;
 
+import com.example.advquerylab.entities.Ingredient;
 import com.example.advquerylab.entities.Shampoo;
 import com.example.advquerylab.entities.Size;
 
@@ -18,4 +19,6 @@ public interface ShampooService {
     List<Shampoo> findByIngredients(List<String> ingredients);
 
     List<Shampoo> findWithPriceGreaterThen(String price);
+
+    List<Ingredient> selectByName(String name);
 }
