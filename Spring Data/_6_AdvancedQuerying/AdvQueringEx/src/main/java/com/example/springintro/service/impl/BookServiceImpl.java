@@ -41,6 +41,14 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findByAgeRestriction(restriction);
     }
 
+    @Override
+    public List<String> findAllTitlesByCopiesLessThan(EditionType editionType, int copies) {
+        return bookRepository.findByEditionTypeAndCopiesLessThan(editionType, copies)
+                .stream()
+                .map(Book::getTitle)
+                .collect(Collectors.toList());
+    }
+
 
     @Override
     public void seedBooks() throws IOException {
