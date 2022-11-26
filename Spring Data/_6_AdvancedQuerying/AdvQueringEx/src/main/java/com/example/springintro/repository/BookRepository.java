@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.print.attribute.standard.Copies;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,6 +26,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<String> findByAgeRestriction(@Param("ageRestriction") AgeRestriction restriction);
 
     List<Book> findByEditionTypeAndCopiesLessThan(EditionType editionType, int copies);
+
+    List<Book> findByPriceLessThanOrPriceGreaterThan(BigDecimal lower, BigDecimal upper);
 }
 
 
