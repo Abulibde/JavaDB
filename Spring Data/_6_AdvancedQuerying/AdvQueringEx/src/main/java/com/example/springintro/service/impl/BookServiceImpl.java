@@ -33,6 +33,15 @@ public class BookServiceImpl implements BookService {
         this.categoryService = categoryService;
     }
 
+
+    @Override
+    public List<String> findAllTitlesByAgeRestriction(String ageRestriction) {
+        AgeRestriction restriction = AgeRestriction.valueOf(ageRestriction.toUpperCase());
+
+        return bookRepository.findByAgeRestriction(restriction);
+    }
+
+
     @Override
     public void seedBooks() throws IOException {
         if (bookRepository.count() > 0) {
@@ -69,7 +78,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<String> findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(String firstName, String lastName) {
-       return bookRepository
+        return bookRepository
                 .findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(firstName, lastName)
                 .stream()
                 .map(book -> String.format("%s %s %d",
