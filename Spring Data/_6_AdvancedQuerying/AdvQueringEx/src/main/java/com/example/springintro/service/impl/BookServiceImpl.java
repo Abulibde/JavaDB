@@ -49,6 +49,11 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<Book> findByPriceLessThanOrPriceGreaterThan(BigDecimal lower, BigDecimal upper) {
+        return bookRepository.findByPriceLessThanOrPriceGreaterThan(lower, upper);
+    }
+
 
     @Override
     public void seedBooks() throws IOException {
