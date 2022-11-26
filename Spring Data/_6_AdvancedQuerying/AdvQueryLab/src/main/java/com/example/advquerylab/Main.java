@@ -1,8 +1,7 @@
 package com.example.advquerylab;
 
 import com.example.advquerylab.entities.Ingredient;
-import com.example.advquerylab.entities.Shampoo;
-import com.example.advquerylab.entities.Size;
+import com.example.advquerylab.services.IngredientService;
 import com.example.advquerylab.services.ShampooService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,10 +15,12 @@ import java.util.Scanner;
 public class Main implements CommandLineRunner {
 
     private final ShampooService shampooService;
+    private final IngredientService ingredientService;
 
     @Autowired
-    public Main(ShampooService shampooService) {
+    public Main(ShampooService shampooService, IngredientService ingredientService) {
         this.shampooService = shampooService;
+        this.ingredientService = ingredientService;
     }
 
     @Override
@@ -27,17 +28,18 @@ public class Main implements CommandLineRunner {
 
         Scanner scanner = new Scanner(System.in);
 
-        String price = scanner.nextLine();
+        String nextLine = scanner.nextLine();
 
-       /* List<String> ingredients = new ArrayList<>();
+       List<String> ingredients = new ArrayList<>();
 
         while (!nextLine.isBlank()) {
             ingredients.add(nextLine);
-            nextLine = scanner.nextLine();
-        }*/
 
-        for (Shampoo shampoo : shampooService.findWithPriceGreaterThen(price)) {
-            System.out.println(shampoo);
+            nextLine = scanner.nextLine();
+        }
+
+        for (Ingredient ingredient : this.ingredientService.selectByNames(ingredients)) {
+            System.out.println(ingredient);
         }
     }
 }
