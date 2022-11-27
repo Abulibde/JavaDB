@@ -26,6 +26,12 @@ public class AppMain implements CommandLineRunner {
 
         Scanner scanner = new Scanner(System.in);
 
+        createAddress(scanner);
+
+
+    }
+
+    private void createAddress(Scanner scanner) {
         String country = scanner.nextLine();
         String city = scanner.nextLine();
 
@@ -34,7 +40,5 @@ public class AppMain implements CommandLineRunner {
         Address address = addressService.create(data);
 
         System.out.println(address);
-
-
     }
 }
