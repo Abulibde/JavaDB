@@ -1,23 +1,36 @@
 package com.example.modelmaplab.domain.entities;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
 
+
+@Entity
+@Table(name="employees")
 public class Employee {
 
     //Create class Employee that has properties
     //first name, last name, salary, birthday and address
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @Column(name = "last_name")
     private String lastName;
 
+    @Column(nullable = false)
     private BigDecimal salary;
 
+    @Column(nullable = false)
     private LocalDate birthday;
 
+    @ManyToOne(optional = false)
     private Address address;
 
     public Employee(){}
