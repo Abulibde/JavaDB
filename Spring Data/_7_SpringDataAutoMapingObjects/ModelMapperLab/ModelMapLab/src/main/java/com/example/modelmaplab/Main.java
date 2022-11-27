@@ -32,10 +32,10 @@ public class Main implements CommandLineRunner {
 
         Address address = new Address("Bulgaria", "Sofia");
 
-        Employee employeeTest = new Employee("testName", BigDecimal.TEN, address);
+        Employee employee = new Employee("testName", BigDecimal.TEN, address);
 
 
-        EmployeeDto employeeDtoTest = typeMap.map(employeeTest);
+        EmployeeDto employeeDtoTest = typeMap.map(employee);
 
         System.out.println(employeeDtoTest);
 
