@@ -1,17 +1,16 @@
 package com.example.modelmaplab;
 
-import com.example.modelmaplab.domain.dto.EmployeeDto;
+import com.example.modelmaplab.domain.DTO.EmployeeDTO;
 import com.example.modelmaplab.domain.entities.Address;
 import com.example.modelmaplab.domain.entities.Employee;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-@Component
-public class Main implements CommandLineRunner {
+//@Component
+public class ModelMapperMain implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
@@ -27,15 +26,15 @@ public class Main implements CommandLineRunner {
         mapper.addMappings(propertyMap);
          */
 
-        TypeMap<Employee, EmployeeDto> typeMap = mapper.createTypeMap(Employee.class, EmployeeDto.class);
-        typeMap.addMapping(employee -> employee.getAddress().getCity(), EmployeeDto::setCity);
+        TypeMap<Employee, EmployeeDTO> typeMap = mapper.createTypeMap(Employee.class, EmployeeDTO.class);
+        typeMap.addMapping(employee -> employee.getAddress().getCity(), EmployeeDTO::setCity);
 
         Address address = new Address("Bulgaria", "Sofia");
 
         Employee employee = new Employee("testName", BigDecimal.TEN, address);
 
 
-        EmployeeDto employeeDtoTest = typeMap.map(employee);
+        EmployeeDTO employeeDtoTest = typeMap.map(employee);
 
         System.out.println(employeeDtoTest);
 
