@@ -1,8 +1,8 @@
-package com.example.modelmaplab.domain.dto;
+package com.example.modelmaplab.domain.DTO;
 
 import java.math.BigDecimal;
 
-public class EmployeeDto {
+public class EmployeeDTO {
 
     //Create EmployeeDto class that will keep synthesized information about instances of the Employee class
     //(only first name, last name and salary)
@@ -13,7 +13,7 @@ public class EmployeeDto {
 
     private String city;
 
-    public EmployeeDto(){}
+    public EmployeeDTO(){}
 
     public String getFirstName() {
         return FirstName;
