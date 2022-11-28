@@ -35,13 +35,20 @@ public class AppMain implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        printAllEmployees();
+        printEmployeeNames();
+
+
+//        printAllEmployees();
 
 //        createEmployee(scanner);
 
 //        createAddress(scanner);
 
 
+    }
+
+    private void printEmployeeNames() {
+        System.out.println(this.employeeService.findNamesById(1L));
     }
 
     private void printAllEmployees() {
