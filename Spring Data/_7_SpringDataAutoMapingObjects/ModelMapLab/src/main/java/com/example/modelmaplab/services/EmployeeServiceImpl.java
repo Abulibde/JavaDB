@@ -2,6 +2,7 @@ package com.example.modelmaplab.services;
 
 import com.example.modelmaplab.domain.DTO.CreateEmployeeDTO;
 import com.example.modelmaplab.domain.DTO.EmployeeDTO;
+import com.example.modelmaplab.domain.DTO.EmployeeNamesDTO;
 import com.example.modelmaplab.domain.entities.Address;
 import com.example.modelmaplab.domain.entities.Employee;
 import com.example.modelmaplab.repositories.AddressRepository;
@@ -53,5 +54,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         return listDTO.stream()
                 .map(employee -> modelMapper.map(employee, EmployeeDTO.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public EmployeeNamesDTO findNamesById(long id) {
+        return this.employeeRepository.findNamesById(id);
     }
 }
