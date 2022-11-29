@@ -1,4 +1,4 @@
-package com.example.jsonexe.productShop.entities;
+package productsShop.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
