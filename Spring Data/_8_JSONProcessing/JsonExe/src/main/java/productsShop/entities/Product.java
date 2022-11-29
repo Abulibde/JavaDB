@@ -1,11 +1,10 @@
-package com.example.jsonexe.productShop.entities;
+package productsShop.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
