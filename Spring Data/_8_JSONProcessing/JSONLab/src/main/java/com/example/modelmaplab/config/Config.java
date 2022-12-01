@@ -1,5 +1,7 @@
 package com.example.modelmaplab.config;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
@@ -18,5 +20,12 @@ public class Config {
     @Bean
     public Scanner createScanner() {
         return new Scanner(System.in);
+    }
+
+    @Bean
+    public Gson createGson(){
+        return new GsonBuilder()
+                .excludeFieldsWithoutExposeAnnotation()
+                .create();
     }
 }
