@@ -1,5 +1,7 @@
-package productsShop.entities;
+package productsShop.entities.products;
 
+import productsShop.entities.categories.Category;
+import productsShop.entities.users.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
