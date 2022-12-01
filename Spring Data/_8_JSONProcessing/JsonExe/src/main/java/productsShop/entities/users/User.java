@@ -1,10 +1,11 @@
-package productsShop.entities;
+package productsShop.entities.users;
 
 import jakarta.persistence.*;
 
 import lombok.Getter;
 
 import lombok.Setter;
+import productsShop.entities.products.Product;
 
 
 import java.util.ArrayList;
