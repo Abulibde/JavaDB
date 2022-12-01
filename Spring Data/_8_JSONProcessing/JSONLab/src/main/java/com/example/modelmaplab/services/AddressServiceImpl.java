@@ -1,6 +1,7 @@
 package com.example.modelmaplab.services;
 
-import com.example.modelmaplab.domain.DTO.CreateAddressDTO;
+import com.example.modelmaplab.domain.DTO.addresses.AddressDTO;
+import com.example.modelmaplab.domain.DTO.addresses.CreateAddressDTO;
 import com.example.modelmaplab.domain.entities.Address;
 import com.example.modelmaplab.repositories.AddressRepository;
 import org.modelmapper.ModelMapper;
@@ -13,6 +14,8 @@ public class AddressServiceImpl implements AddressService {
 
     private final ModelMapper modelMapper;
 
+
+
     @Autowired
     public AddressServiceImpl(AddressRepository addressRepository, ModelMapper modelMapper) {
         this.addressRepository = addressRepository;
@@ -21,10 +24,12 @@ public class AddressServiceImpl implements AddressService {
 
 
     @Override
-    public Address create(CreateAddressDTO data) {
+    public AddressDTO create(CreateAddressDTO data) {
 
         Address address = modelMapper.map(data, Address.class);
 
-        return this.addressRepository.save(address);
+        Address saved = this.addressRepository.save(address);
+
+        return this.modelMapper.map(saved, AddressDTO.class);
     }
 }
