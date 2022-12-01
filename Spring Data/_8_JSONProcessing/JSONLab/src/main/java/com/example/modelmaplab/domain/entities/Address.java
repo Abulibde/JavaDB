@@ -10,10 +10,10 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column//(nullable = false)
     private String country;
 
-    @Column(nullable = false)
+    @Column//(nullable = false)
     private String city;
 
     public Address() {
