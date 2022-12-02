@@ -2,6 +2,7 @@ package productsShop.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import productsShop.entities.categories.CategoryStatsDTO;
 import productsShop.entities.products.Product;
 import productsShop.entities.products.ProductWithoutBuyerDTO;
 import productsShop.repositories.ProductRepository;
@@ -25,8 +26,12 @@ public class ProductServiceImpl implements ProductService {
         BigDecimal rangeStart = BigDecimal.valueOf(from);
         BigDecimal rangeEnd = BigDecimal.valueOf(to);
 
-        List<ProductWithoutBuyerDTO> products = this.productRepository.findAllByPriceBetweenAndBuyerIsNullOrderByPriceAsc(rangeStart, rangeEnd);
+        return this.productRepository.findAllByPriceBetweenAndBuyerIsNullOrderByPriceAsc(rangeStart, rangeEnd);
+    }
 
-        return products;
+
+    @Override
+    public List<CategoryStatsDTO> getCategoryStatistics() {
+        return this.productRepository.getCategoryStats();
     }
 }
