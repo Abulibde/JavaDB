@@ -850,9 +850,18 @@ ORDER BY p.elevation DESC;
 # 13.	Count Mountain Ranges
 SELECT mc.country_code, COUNT(m.mountain_range) AS 'mountain_range_count'
 FROM mountains AS m
-JOIN mountains_countries AS mc ON m.id = mc.mountain_id
+         JOIN mountains_countries AS mc ON m.id = mc.mountain_id
 WHERE mc.country_code IN ('BG', 'US', 'RU')
 GROUP BY mc.country_code
 ORDER BY 'mountain_range_count' DESC;
+
+# 14.	Countries with Rivers
+SELECT c.country_name, r.river_name
+FROM countries AS c
+         LEFT JOIN countries_rivers cr on c.country_code = cr.country_code
+         LEFT JOIN rivers r on r.id = cr.river_id
+WHERE c.continent_code = 'AF'
+ORDER BY c.country_name ASC
+LIMIT 5;
 
 
