@@ -861,7 +861,7 @@ FROM countries AS c
          LEFT JOIN countries_rivers cr on c.country_code = cr.country_code
          LEFT JOIN rivers r on r.id = cr.river_id
 WHERE c.continent_code = 'AF'
-ORDER BY c.country_name ASC
+ORDER BY c.country_name
 LIMIT 5;
 
 # 16. Countries without any Mountains
