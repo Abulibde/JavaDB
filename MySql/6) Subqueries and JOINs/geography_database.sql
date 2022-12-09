@@ -864,4 +864,10 @@ WHERE c.continent_code = 'AF'
 ORDER BY c.country_name ASC
 LIMIT 5;
 
+# 16. Countries without any Mountains
+SELECT COUNT(country_name) AS 'country_count'
+FROM countries
+         LEFT JOIN mountains_countries mc on countries.country_code = mc.country_code
+WHERE mc.mountain_id IS NULL;
+
 
