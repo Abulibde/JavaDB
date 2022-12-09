@@ -847,4 +847,12 @@ WHERE mc.country_code = 'BG'
   AND p.elevation > 2835
 ORDER BY p.elevation DESC;
 
+# 13.	Count Mountain Ranges
+SELECT mc.country_code, COUNT(m.mountain_range) AS 'mountain_range_count'
+FROM mountains AS m
+JOIN mountains_countries AS mc ON m.id = mc.mountain_id
+WHERE mc.country_code IN ('BG', 'US', 'RU')
+GROUP BY mc.country_code
+ORDER BY 'mountain_range_count' DESC;
+
 
