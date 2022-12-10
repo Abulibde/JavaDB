@@ -106,8 +106,14 @@ SET `runtime` = `runtime` - 10
 WHERE id BETWEEN 15 AND 25;
 
 # 04.	Delete
-DELETE c FROM `countries` AS c
-LEFT JOIN `movies` AS m ON c.`id` = m.`country_id`
+DELETE c
+FROM `countries` AS c
+         LEFT JOIN `movies` AS m ON c.`id` = m.`country_id`
 WHERE m.`country_id` IS NULL;
 
 # 05.	Countries
+SELECT c.id, c.name, c.continent, c.currency
+FROM countries AS c
+ORDER BY c.currency DESC, c.id;
+
+#
