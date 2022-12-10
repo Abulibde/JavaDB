@@ -117,3 +117,20 @@ FROM countries AS c
 ORDER BY c.currency DESC, c.id;
 
 # 06.	Old movies
+SELECT mai.id, m.title, mai.runtime, mai.budget, mai.release_date
+FROM movies_additional_info AS mai
+         JOIN movies m on mai.id = m.movie_info_id
+WHERE year(release_date) BETWEEN 1996 AND 1999
+ORDER BY mai.runtime, mai.id
+LIMIT 20;
+
+# 07.	Movie casting
+SELECT CONCAT(a.first_name, ' ', a.last_name)                         AS full_name,
+       CONCAT(REVERSE(a.last_name), LENGTH(a.last_name), '@cast.com') AS mail,
+       2022 - YEAR(a.birthdate)                                       AS age,
+       a.height
+FROM actors AS a
+         LEFT JOIN movies_actors ma on a.id = ma.actor_id
+WHERE ma.movie_id IS NULL
+ORDER BY a.height;
+
