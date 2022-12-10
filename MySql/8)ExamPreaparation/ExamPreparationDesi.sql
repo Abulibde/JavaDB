@@ -142,5 +142,7 @@ GROUP BY c.name
 HAVING movies_count >= 7
 ORDER BY c.name DESC;
 
+# 09.	Rating system
+
 
 
