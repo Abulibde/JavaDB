@@ -134,3 +134,13 @@ FROM actors AS a
 WHERE ma.movie_id IS NULL
 ORDER BY a.height;
 
+# 08.	International festival
+SELECT c.name, COUNT(m.title) AS movies_count
+FROM countries AS c
+         LEFT JOIN movies m on c.id = m.country_id
+GROUP BY c.name
+HAVING movies_count >= 7
+ORDER BY c.name DESC;
+
+
+
