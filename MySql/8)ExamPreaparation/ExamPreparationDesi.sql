@@ -116,4 +116,4 @@ SELECT c.id, c.name, c.continent, c.currency
 FROM countries AS c
 ORDER BY c.currency DESC, c.id;
 
-#
+# 06.	Old movies
